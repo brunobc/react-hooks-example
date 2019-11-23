@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Effect from "./Effect";
+import Location from "./Location";
+
 export default function App() {
   const [skills, setSkills] = useState([
     { id: 1, name: "proactive" },
@@ -18,13 +20,15 @@ export default function App() {
   }
   return (
     <>
-      <Effect />
+      <Location />
       <ul>
         {skills.map(skill => (
           <li key={skill.id}>{skill.name}</li>
         ))}
       </ul>
       <button onClick={handleAddSkill}>Add</button>
+
+      <Effect />
     </>
   );
 }
