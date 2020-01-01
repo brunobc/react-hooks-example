@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 
 export default function Tech() {
   const [tech, setTech] = useState([])
   const [newTech, setNewTech] = useState('')
+  const techSize = useMemo(() => tech.length, [tech])
 
   function handleAdd() {
     setTech([...tech, newTech])
@@ -28,6 +29,10 @@ export default function Tech() {
           <li key={t}>{t}</li>
         ))}
       </ul>
+      <strong>
+        Você tem {techSize} tecnologias
+      </strong>
+      <br />
       <input value={newTech} onChange={e => setNewTech(e.target.value)} />
       <button type="button" onClick={handleAdd}>
         Add

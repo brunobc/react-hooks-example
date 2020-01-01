@@ -23,6 +23,7 @@ module.exports = {
     'react'
   ],
   rules: {
+    "react/jsx-one-expression-per-line": 0,
     "arrow-parens": [
 			"error",
 			"as-needed"
