@@ -20,10 +20,14 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: [
-    'react'
+    'react',
+    'react-hooks'
   ],
   rules: {
+    "object-curly-newline": 0,
     "react/jsx-one-expression-per-line": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
     "arrow-parens": [
 			"error",
 			"as-needed"

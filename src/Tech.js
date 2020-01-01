@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useEffect, useMemo, useCallback } from 'react'
 
 export default function Tech() {
   const [tech, setTech] = useState([])
   const [newTech, setNewTech] = useState('')
   const techSize = useMemo(() => tech.length, [tech])
 
-  function handleAdd() {
+  const handleAdd = useCallback(() => {
     setTech([...tech, newTech])
     setNewTech('')
-  }
+  }, [newTech, tech])
 
   useEffect(() => {
     const storageTech = localStorage.getItem('tech')
