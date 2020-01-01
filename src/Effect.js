@@ -1,29 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 
 export default function Effect() {
-  const [repositories, setRepositories] = useState([]);
+  const [repositories, setRepositories] = useState([])
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(
-        'https://api.github.com/users/brunobc/repos'
-      );
-      const data = await response.json();
-      setRepositories(data);
+      const response = await fetch('https://api.github.com/users/brunobc/repos')
+      const data = await response.json()
+      setRepositories(data)
     }
-    fetchData();
-  }, []);
+    fetchData()
+  }, [])
 
   useEffect(() => {
-    const filtered = repositories.filter(repo => repo.favorite);
-    document.title = `${filtered.length} favorites`;
-  }, [repositories]);
+    const filtered = repositories.filter(repo => repo.favorite)
+    document.title = `${filtered.length} favorites`
+  }, [repositories])
 
   function handleFavorite(id) {
-    const newRepositories = repositories.map(repo =>
+    const newRepositories = repositories.map(repo => (
       repo.id === id ? { ...repo, favorite: !repo.favorite } : repo
-    );
-    setRepositories(newRepositories);
+    ))
+    setRepositories(newRepositories)
   }
 
   return (
@@ -38,5 +36,5 @@ export default function Effect() {
         </li>
       ))}
     </ul>
-  );
+  )
 }

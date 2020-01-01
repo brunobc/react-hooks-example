@@ -4,9 +4,8 @@ module.exports = {
     es6: true,
   },
   extends: [
-    'airbnb',
     'prettier',
-    'prettier/react'
+    'airbnb'
   ],
   globals: {
     Atomics: 'readonly',
@@ -21,11 +20,23 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: [
-    'react',
-    'prettier'
+    'react'
   ],
   rules: {
-    'prettier/prettier': 'error',
+    "arrow-parens": [
+			"error",
+			"as-needed"
+		],
+    "comma-dangle": ["error", "never"],
+    "semi": [2, "never"],
+    "global-require": 0,
+    "generator-star-spacing": [
+      2,
+      {
+        "before": true,
+        "after": false
+      }
+    ],
     'react/jsx-filename-extension': [
       'warn',
       { extensions: ['.jsx', 'js']}
