@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 export default function Effect() {
   const [repositories, setRepositories] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch("https://api.github.com/users/brunobc/repos");
+      const response = await fetch(
+        'https://api.github.com/users/brunobc/repos'
+      );
       const data = await response.json();
       setRepositories(data);
     }
@@ -30,8 +32,10 @@ export default function Effect() {
         <li key={repo.id}>
           {repo.name}
           {repo.favorite && <span>(Favorito)</span>}
-          <button onClick={() => handleFavorite(repo.id)}>Favoritar</button>
-          </li>
+          <button type="button" onClick={() => handleFavorite(repo.id)}>
+            Favoritar
+          </button>
+        </li>
       ))}
     </ul>
   );

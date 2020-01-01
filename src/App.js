@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import Effect from "./Effect";
-import Location from "./Location";
+import React, { useState } from 'react';
+import Effect from './Effect';
+import Location from './Location';
 
 export default function App() {
   const [skills, setSkills] = useState([
-    { id: 1, name: "proactive" },
-    { id: 2, name: "feedback" },
-    { id: 3, name: "focus" }
+    { id: 1, name: 'proactive' },
+    { id: 2, name: 'feedback' },
+    { id: 3, name: 'focus' },
   ]);
 
   function handleAddSkill() {
@@ -14,8 +14,8 @@ export default function App() {
       ...skills,
       {
         id: Math.random(),
-        name: `New skill`
-      }
+        name: `New skill`,
+      },
     ]);
   }
   return (
@@ -26,7 +26,9 @@ export default function App() {
           <li key={skill.id}>{skill.name}</li>
         ))}
       </ul>
-      <button onClick={handleAddSkill}>Add</button>
+      <button type="button" onClick={handleAddSkill}>
+        Add
+      </button>
 
       <Effect />
     </>
